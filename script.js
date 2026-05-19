@@ -34,12 +34,14 @@ function renderImages() {
   images.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
+    img.className = `img${index + 1}`;
     img.dataset.index = index;
     img.dataset.src = src;
     img.addEventListener('click', () => handleImageClick(index));
     
     if (selectedIndices.includes(index)) {
-      img.classList.add('selected');
+      img.style.opacity = '0.6';
+      img.style.border = '3px solid #4CAF50';
     }
     
     container.appendChild(img);
